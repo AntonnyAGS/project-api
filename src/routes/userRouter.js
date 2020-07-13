@@ -11,6 +11,8 @@ const UserController = require(__CONTROLLERS + 'UserController');
 
 // User Routes //
 router.post('/register', userMiddleware.validateRegister, UserController.store);
+router.post('/authenticate', UserController.authenticate);
+
 router.get('/:id', UserController.index);
 
 module.exports = router;
