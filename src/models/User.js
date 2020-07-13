@@ -9,11 +9,14 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    lowercase: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    select: false,
   },
   birthDate: {
     type: Date,
@@ -21,7 +24,11 @@ const UserSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+  },
+  isCordinator: {
+    type: Boolean,
+    default: false,
   }
 });
 

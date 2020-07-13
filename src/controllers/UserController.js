@@ -1,9 +1,11 @@
+'use strict';
+
 const User = require(__MODELS + 'User');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
   async store(req, res){
-    const {name, email, password, birthDate} = req.body;
+    const {name, email, password, birthDate, isCordinator} = req.body;
 
     const userExists = await User.findOne({ email: email });
 
@@ -16,7 +18,8 @@ module.exports = {
         name,
         email,
         password: hashedPassword,
-        birthDate
+        birthDate,
+        isCordinator
       });
 
       return res.status(201).json(user);
