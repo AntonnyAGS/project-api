@@ -1,19 +1,7 @@
-const express = require('express');
-const router = express.Router();
+'use strict';
 
-// Middlewares //
-const userMiddleware = require(__MIDDLEWARES + 'creatingUser');
+const userRouter = require(__ROUTES + 'userRouter');
 
-// Controllers //
-const UserController = require(__CONTROLLERS + 'UserController');
-
-// Routes //
-router.get('/', (req, res) => {
-  res.send('Hi world');
-});
-
-// User Routes //
-router.post('/users', userMiddleware.validateRegister, UserController.store);
-router.get('/users', UserController.index);
-
-module.exports = router;
+module.exports = (app) => {
+  app.use('/users', userRouter);
+}

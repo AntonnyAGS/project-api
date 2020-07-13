@@ -7,4 +7,6 @@ module.exports = () => {
   global.__MODELS = __BASE.concat('/models/');
   global.__MIDDLEWARES = __BASE.concat('/middlewares/');
   global.__HELPERS = __BASE.concat('/helpers/');
+  global.__CONFIG = __BASE.concat('/config/');
+  global.__ROUTES = __BASE.concat('/routes/');
 }
